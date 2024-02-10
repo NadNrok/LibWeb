@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+    <style>
+        .btn-warning{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+
+
+<div class="container mt-5">
+    <div th:each="el:${book}" class="alert alert-info mt-2">
+        <h2 th:text="${el.author.name}+ ' - &quot;' + ${el.name} + '&quot;'"/> <br>
+        <h4 th:text="'Кількість сторінок: ' + ${el.pages}" />
+        <h4 th:text= "'Дата написання: ' + ${el.releaseDate}"/>
+        <h4 th:text="'Ціна: ' + ${el.price} + ' грн.'"></h4>
+        <button class="btn btn-warning" th:data="${el.id}">Придбати</button>
+    </div>
+</div>
+</body>
+</html>

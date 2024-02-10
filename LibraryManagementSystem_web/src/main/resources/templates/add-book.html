@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Title</title>
+
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5 mb-5">
+    <h1>Додавання книги</h1>
+    <form th:action=${'/all_books/add'} th:method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input type="text" name="author" placeholder="Введіть ім'я нового автора " class="form-control"><br>
+        <input type="text" name="name" placeholder="Введіть назву книги" class="form-control"><br>
+        <input type="number" name="pages" placeholder="Кількість сторінок" class="form-control"><br>
+        <input type="number" name="price" placeholder="Ціна" class="form-control"><br>
+        <input type="text" name="releaseDate" placeholder="Дата релізу" class="form-control"><br>
+        <button type="submit" class="btn btn-success">Додати книгу</button>
+    </form>
+</div>
+
+</body>
+</html>

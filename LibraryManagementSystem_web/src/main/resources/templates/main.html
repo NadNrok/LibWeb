@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style type="text/css">
+
+    .btn-warning{
+        margin-left: 20px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Title</title>
+
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div>
+    <a th:href="'/cabinet'" class="btn btn-warning">Особистий кабінет</a> <br>
+    <a th:href="'/all_books'" class="btn btn-warning">Всі книжки</a> <br>
+    <a th:href="'/all_authors'" class="btn btn-warning">Всі автори</a> <br>
+    <a th:href="'/recommend_book'" class="btn btn-warning">Порекомендувати книгу</a> <br>
+    <a th:href="'/recommended_books'" class="btn btn-warning">Рекомендовані книги</a> <br>
+</div>
+
+
+</body>
+</html>

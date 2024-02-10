@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Title</title>
+
+
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div th:insert="blocks/default :: default"></div>
+
+<div>
+    <h1>Всі автори</h1>
+    <div th:each="el:${authors}" class="alert alert-info mt-2">
+        <h4 th:text="${el.name}"/>
+        <a th:href="'/all_authors/' + ${el.id}" class="btn btn-warning">Показати всі книжки</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Title</title>
+    <style>
+        form {
+            margin-top: 5px;
+        }
+        a{
+            width: 10%;
+        }
+        button{
+            width: 10%;
+        }
+        .btn-warning{
+            float: left;
+            margin-right: 10px;
+        }
+        .mt-2{
+            padding-bottom: 50px;
+
+        }
+        .top{
+            padding-bottom: 50px;
+            padding-left: 20px;
+        }
+        add-book{
+            float: left;
+        }
+        .btn-danger{
+            float: left;
+            margin-right: 10px;
+        }
+
+    </style>
+
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div th:insert="blocks/default :: default"></div>
+
+<div>
+    <div class="top">
+        <h1>Всі книги</h1>
+        <a th:href="'/all_books/add'" class="btn btn-warning add-book">Додати книгу</a>
+    </div>
+    <div th:each="el:${books}"  class="alert alert-info mt-2">
+        <h4 th:text="${el.author?.name}+ ' - &quot;' + ${el.name} + '&quot;'"/>
+        <a th:href="'/book/' + ${el.id}" class="btn btn-warning">Детільніше</a>
+        <form th:action="'/book/' + ${el.id} + '/remove'" method="post">
+            <button class="btn btn-danger" type="submit">Видалити</button>
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        </form>
+        <form method="get" th:action="'/book/' + ${el.id} + '/edit'">
+            <button class="btn btn-danger" type="submit">Редагувати</button>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

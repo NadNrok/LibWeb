@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Недостатньо прав</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+        <style>
+            .btn-warning{
+                margin-left: 20px;
+                margin-right: 10px;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+            #message{
+                background-color: #FFCE43;
+                color: #000000;
+                border: 1px solid #323232;
+                font-size:30px;
+                margin: 20px;
+                margin-right: 600px;
+                padding-left:5px;
+                padding-top: 2px;
+                padding-bottom: 2px;
+            }
+            #buttons{
+                color: #000000;
+                font-size:30px;
+                margin: 20px;
+                margin-right: 900px;
+                padding-left:5px;
+                padding-top: 2px;
+                padding-bottom: 2px;
+            }
+        </style>
+    </head>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div id="message">
+    <h2>У Вас недостатньо прав для цієї функції.</h2>
+    <h2>Ви можете перейти до інших сторінок:</h2>
+</div>
+
+<div id="buttons">
+    <a th:href="'/cabinet'" class="btn btn-warning">Особистий кабінет</a> <br>
+    <a th:href="'/all_books'" class="btn btn-warning">Всі книжки</a> <br>
+    <a th:href="'/all_authors'" class="btn btn-warning">Всі автори</a> <br>
+    <a th:href="'/recommend_book'" class="btn btn-warning">Порекомендувати книгу</a> <br>
+    <a th:href="'/recommended_books'" class="btn btn-warning">Рекомендовані книги</a>
+</div>
+</body>
+</html>

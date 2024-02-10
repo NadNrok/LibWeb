@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Title</title>
+
+
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div>
+    <h1>Всі рекомендовані книги</h1>
+    <div th:each="el:${recommendedBook}" class="alert alert-info mt-2">
+        <h4 th:text="${el.author}+ ' - &quot;' + ${el.name} + '&quot;'"/>
+        <form th:action="'/recommended_books/' + ${el.id} + '/remove'" method="post">
+            <button class="btn btn-warning" type="submit">Видалити</button>
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        </form>
+    </div>
+</div>
+</body>
+</html>
